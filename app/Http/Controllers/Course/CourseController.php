@@ -70,6 +70,17 @@ class CourseController extends Controller
     public function update(Request $request, Course $course)
     {
         //
+        $course->fill($request->only([
+            'name', 'description'
+        ]));
+
+        if($course->isClean()){
+            return response()->json(['error'=>'Somethings change for updating'],422);
+        }
+
+        $course->save();
+
+        return response()->json(['data'=>$course],200);
     }
 
     /**
