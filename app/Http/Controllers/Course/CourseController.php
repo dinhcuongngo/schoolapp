@@ -54,6 +54,9 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         //
+        $data = Course::findOrFail($course);
+
+        return response()->json(['data'=>$data],200);
     }
 
 
