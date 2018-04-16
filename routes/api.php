@@ -13,5 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+
 //=====COURSE
 Route::resource('courses','Course\CourseController',['except'=>['create','edit']]);
+
+

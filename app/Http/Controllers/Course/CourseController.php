@@ -31,6 +31,18 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         //
+        $rules = [
+            'name' => 'required',
+            'description' => 'required',
+        ];
+
+        $this->validate($request, $rules);
+
+        $data = $request->all();
+
+        $course = Course::create($data);
+
+        return response()->json(['data'=>$course],201);
     }
 
     /**
