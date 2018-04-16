@@ -12,3 +12,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+//=====COURSE
+Route::resource('courses','Course\CourseController',['except'=>['create','edit']]);
